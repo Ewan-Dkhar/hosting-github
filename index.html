@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hosting on github</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>Hosting on github</h1>
@@ -67,5 +68,20 @@
       tristique enim vitae ullamcorper. Duis maximus in turpis vitae tempor.
       Aenean vel lacus id odio molestie imperdiet.
     </p>
+
+    <input type="button" value="Toggle CSS" class="toggle-css-btn" />
   </body>
+  <script>
+    document.querySelector('.toggle-css-btn').addEventListener('click', function() {
+      const link = document.querySelector('link[rel="stylesheet"]');
+      if (link) {
+        link.parentNode.removeChild(link);
+      } else {
+        const newLink = document.createElement('link');
+        newLink.rel = 'stylesheet';
+        newLink.href = 'style.css';
+        document.head.appendChild(newLink);
+      }
+    });
+  </script>
 </html>
